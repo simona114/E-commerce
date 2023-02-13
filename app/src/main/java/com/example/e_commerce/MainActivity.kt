@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavView.setupWithNavController(navController)
 
+        //todo: implement logic for saving items to favorites
+        val badgeFavorites = bottomNavView.getOrCreateBadge(R.id.favoritesFragment)
+        badgeFavorites.number = 1
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
 
