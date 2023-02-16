@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="roundedImageView" parent="">
         <item name="cornerFamilyTopRight">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
+
+    <style name="customChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+    </style>
+
 </resources>

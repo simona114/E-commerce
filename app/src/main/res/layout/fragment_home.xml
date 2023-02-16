@@ -40,15 +40,92 @@
         app:layout_constraintBottom_toBottomOf="@id/ivDiscount"
         app:layout_constraintEnd_toEndOf="@id/ivDiscount" />
 
+    <TextView
+        android:id="@+id/tvProductCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDiscount"
+
+        />
+
+    <HorizontalScrollView
+        android:id="@+id/hsvProductCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProductCategories">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgProductCategories"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:singleLine="true"
+            app:singleSelection="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cCategoryElectronics"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoryElectronics" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cCategoryJewelry"
+                style="@style/customChipStyle"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoryJewelry" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cCategoryMenClothing"
+                style="@style/customChipStyle"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoryMenClothing" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cCategoryWomenClothing"
+                style="@style/customChipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categoryWomenClothing" />
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProducts"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivDiscount"
+        app:layout_constraintTop_toBottomOf="@id/hsvProductCategories"
         tools:listitem="@layout/item_product" />
+
+    <TextView
+        android:text="@string/warning_no_products_selected_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hsvProductCategories"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tvNoProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
