@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setToolbar()
         setNavigation()
     }
 
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        val navController = navHostFragment.navController
+         navController = navHostFragment.navController
 
         //Enable navigation via back arrow on phone
         navController.enableOnBackPressed(true)
@@ -48,7 +49,10 @@ class MainActivity : AppCompatActivity() {
         val badgeFavorites = bottomNavView.getOrCreateBadge(R.id.favoritesFragment)
         badgeFavorites.number = 1
 
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+
             when (destination.id) {
 
                 R.id.homeFragment -> {
@@ -71,8 +75,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    private fun setToolbar(){
+        val mToolbar = binding.mToolbar
+        setSupportActionBar(mToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="roundedImageView" parent="">
         <item name="cornerFamilyTopRight">rounded</item>
         <item name="cornerSize">8dp</item>
@@ -7,6 +8,12 @@
 
     <style name="customChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
         <item name="chipBackgroundColor">@color/chip_background_color</item>
+    </style>
+
+    <style name="customToolbarStyle">
+        <item name="titleCentered">true</item>
+        <item name="titleTextColor">@color/azureish_white</item>
+        <item name="android:background">@color/robin_egg_blue</item>
     </style>
 
 </resources>

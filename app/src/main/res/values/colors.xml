@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="mediumGray">#D7E6F1</color>
+    <color name="azureish_white">#D7E6F1</color>
     <color name="mediumBlue">#88BDE6</color>
+    <color name="robin_egg_blue">#1B6BA8</color>
 </resources>
