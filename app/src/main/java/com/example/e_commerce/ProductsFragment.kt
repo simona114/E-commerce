@@ -68,6 +68,9 @@ class ProductsFragment : Fragment() {
             ),
             ProductModel("Iphone", 1800.00, ProductCategory.ELECTRONICS, "url"),
             ProductModel("Iphone", 1800.00, ProductCategory.MEN_CLOTHING, "url"),
+            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
+            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
+            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
             ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url")
         )
 
@@ -76,7 +79,7 @@ class ProductsFragment : Fragment() {
 
         binding.rvProducts.apply {
             adapter = productAdapter
-            layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.HORIZONTAL, false)
+            layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
         }
 
     }
