@@ -1,5 +1,6 @@
 package com.example.e_commerce.data
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
@@ -11,7 +12,7 @@ import com.example.e_commerce.data.models.ProductModel
 import com.example.e_commerce.databinding.ItemProductBinding
 
 class ProductAdapter() :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(){
+    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(), Filterable {
     var productList = listOf<ProductModel>()
     var productListFiltered = listOf<ProductModel>()
 
@@ -21,7 +22,7 @@ class ProductAdapter() :
             productsBinding.apply {
                 tvProductTitle.text = product.title
                 tvProductPrice.text = product.price.toString()
-                
+
                 Glide.with(itemView.context)
                     .load(product.image)
                     .placeholder(R.drawable.placeholder)
@@ -49,35 +50,39 @@ class ProductAdapter() :
         this.productList = productList
         notifyDataSetChanged()
     }
-//    todo: use for searching products
-//    override fun getFilter(): Filter {
-//        return object : Filter() {
-//            override fun performFiltering(constraint: CharSequence?): FilterResults {
-//                val charString = constraint?.toString()?.lowercase() ?: ""
-//                if (charString.isEmpty()) productListFiltered = productList else {
-//                    val filteredList = ArrayList<ProductModel>()
-//                    productList
-//                        .filter {
-//                            it.category.name.lowercase().contains(constraint!!)
-//                        }
-//                        .forEach { filteredList.add(it) }
-//                    productListFiltered = filteredList
-//
-//                }
-//
-//                return FilterResults().apply { values = productListFiltered }
-//            }
-//
-//            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-//
-//                productListFiltered = if (results?.values == null)
-//                    ArrayList()
-//                else
-//                    results.values as List<ProductModel>
-//
-//                notifyDataSetChanged()
-//            }
-//        }
-//    }
-//
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val filterPattern = constraint?.toString()?.lowercase()?.trim() ?: ""
+                Log.d("filterSearch", "performFiltering: $filterPattern")
+                productListFiltered = if (filterPattern.isEmpty()) productList else {
+                    val tempFilteredList = ArrayList<ProductModel>()
+                    productList
+                        .filter {
+                            it.title.lowercase().contains(filterPattern)
+                        }
+                        .forEach { tempFilteredList.add(it) }
+                    tempFilteredList
+
+                }
+
+                return FilterResults().apply { values = productListFiltered }
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+
+                productListFiltered = if (results?.values == null)
+                    ArrayList()
+                else
+                    results.values as List<ProductModel>
+
+                Log.d("filterSearch", "publishResults: ${productListFiltered.size}")
+
+                injectList(productListFiltered)
+
+            }
+        }
+    }
+
 }

@@ -80,6 +80,7 @@ class HomeFragment : Fragment() {
             cCategoryMenClothing.setOnCheckedChangeListener(checkedChangeListener)
         }
 
+        //todo:fix
         repoAdapter = ProductAdapter()
         repoAdapter?.injectList(products)
 

@@ -10,6 +10,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/mToolbar"
         style="@style/customToolbarStyle"
+        android:theme="@style/customThemeOverlay.Toobar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"

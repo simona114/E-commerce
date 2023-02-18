@@ -10,10 +10,17 @@
         <item name="chipBackgroundColor">@color/chip_background_color</item>
     </style>
 
-    <style name="customToolbarStyle">
+    <style name="customToolbarStyle" parent="ThemeOverlay.MaterialComponents.ActionBar">
         <item name="titleCentered">true</item>
         <item name="titleTextColor">@color/azureish_white</item>
         <item name="android:background">@color/robin_egg_blue</item>
+
+    </style>
+
+    <style name="customThemeOverlay.Toobar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:editTextColor">@color/azureish_white</item>
+        <item name="android:textColorHint">@color/azureish_white</item>
+        <item name="android:textColorPrimary">@color/azureish_white</item>
     </style>
 
 </resources>
