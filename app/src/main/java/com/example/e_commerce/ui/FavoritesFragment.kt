@@ -1,11 +1,9 @@
-package com.example.e_commerce
+package com.example.e_commerce.ui
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
-import androidx.lifecycle.Lifecycle
+import com.example.e_commerce.R
 import com.example.e_commerce.databinding.FragmentFavoritesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

@@ -1,4 +1,4 @@
-package com.example.e_commerce.data
+package com.example.e_commerce.ui.product.list
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.e_commerce.R
-import com.example.e_commerce.data.models.ProductModel
+import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.ItemProductBinding
 
 class ProductAdapter() :

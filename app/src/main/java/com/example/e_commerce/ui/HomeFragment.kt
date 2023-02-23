@@ -1,4 +1,4 @@
-package com.example.e_commerce
+package com.example.e_commerce.ui
 
 import android.os.Bundle
 import android.view.*
@@ -9,10 +9,11 @@ import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.e_commerce.data.ProductAdapter
-import com.example.e_commerce.data.ProductCategory
-import com.example.e_commerce.data.models.ProductModel
+import com.example.e_commerce.R
+import com.example.e_commerce.data.models.product.ProductCategory
+import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.FragmentHomeBinding
+import com.example.e_commerce.ui.product.list.ProductAdapter
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 

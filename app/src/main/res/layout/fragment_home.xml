@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="16dp"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivDiscount"
