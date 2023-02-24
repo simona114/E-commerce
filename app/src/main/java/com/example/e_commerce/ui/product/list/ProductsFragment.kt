@@ -6,15 +6,20 @@ import android.widget.TextView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.e_commerce.R
-import com.example.e_commerce.data.models.product.ProductCategory
+import com.example.e_commerce.data.adapter.ProductAdapter
+import com.example.e_commerce.data.db.entity.ProductEntity
+import com.example.e_commerce.data.db.entity.toProductModel
 import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.FragmentProductsBinding
 import com.example.e_commerce.ui.HomeFragmentDirections
+import com.example.e_commerce.ui.product.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ProductsFragment : Fragment() {
     lateinit var binding: FragmentProductsBinding
 
@@ -23,6 +28,8 @@ class ProductsFragment : Fragment() {
 
     private var productAdapter: ProductAdapter? = null
     lateinit var products: List<ProductModel>
+
+    private val viewModelProducts: ProductViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +43,6 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //todo:implement filtering
         menuHost = requireActivity()
         menuProvider = object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -60,27 +66,40 @@ class ProductsFragment : Fragment() {
         menuHost.addMenuProvider(menuProvider)
 
 
-        products = listOf(
-            ProductModel(
-                "phone",
-                800.00,
-                ProductCategory.ELECTRONICS,
-                "https://i.dummyjson.com/data/products/1/4.jpg"
-            ),
-            ProductModel("Iphone", 1800.00, ProductCategory.ELECTRONICS, "url"),
-            ProductModel("Iphone", 1800.00, ProductCategory.MEN_CLOTHING, "url"),
-            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url")
-        )
+//        products = listOf(
+//            ProductModel(
+//                "phone",
+//                800.00,
+//                ProductCategory.ELECTRONICS,
+//                "https://i.dummyjson.com/data/products/1/4.jpg"
+//            ),
+//            ProductModel("Iphone", 1800.00, ProductCategory.ELECTRONICS, "url"),
+//            ProductModel("Iphone", 1800.00, ProductCategory.MEN_CLOTHING, "url"),
+//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
+//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
+//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
+//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url")
+//        )
 
-        productAdapter = ProductAdapter()
-        productAdapter?.injectList(products)
+        //todo: replace with data from the server
+        val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
+        val pr2 = ProductEntity(2, "phone", 800.00, "electronics", "url")
 
-        binding.rvProducts.apply {
-            adapter = productAdapter
-            layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+        viewModelProducts.cacheProduct(pr)
+        viewModelProducts.cacheProduct(pr2)
+
+        viewModelProducts.getCachedProducts()
+
+        viewModelProducts.productsLiveData.observe(viewLifecycleOwner) { productsList ->
+
+            products = productsList.map { productEntity -> productEntity.toProductModel() }
+            productAdapter = ProductAdapter()
+            productAdapter?.injectList(products)
+
+            binding.rvProducts.apply {
+                adapter = productAdapter
+                layoutManager = GridLayoutManager(activity, 2, GridLayoutManager.VERTICAL, false)
+            }
         }
 
     }
@@ -92,7 +111,7 @@ class ProductsFragment : Fragment() {
 
         searchView.apply {
             queryHint = "Search for a product..."
-            isIconified = false;
+            isIconified = false
             maxWidth = Int.MAX_VALUE
 
             setOnQueryTextListener(object :
@@ -111,7 +130,6 @@ class ProductsFragment : Fragment() {
 
             })
         }
-
 
 
     }

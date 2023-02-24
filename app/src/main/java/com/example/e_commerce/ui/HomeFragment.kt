@@ -13,7 +13,7 @@ import com.example.e_commerce.R
 import com.example.e_commerce.data.models.product.ProductCategory
 import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.FragmentHomeBinding
-import com.example.e_commerce.ui.product.list.ProductAdapter
+import com.example.e_commerce.data.adapter.ProductAdapter
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 

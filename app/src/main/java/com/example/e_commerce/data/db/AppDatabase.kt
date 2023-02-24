@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.e_commerce.data.db.dao.ProductDao
 import com.example.e_commerce.data.db.entity.ProductEntity
+import dagger.hilt.InstallIn
 import kotlinx.coroutines.InternalCoroutinesApi
+import javax.inject.Inject
 
 @Database(
     entities = [ProductEntity::class],
     version = 1
 )
-abstract class AppDatabase : RoomDatabase() {
+abstract class AppDatabase: RoomDatabase() {
 
     abstract fun getProductDao(): ProductDao
 

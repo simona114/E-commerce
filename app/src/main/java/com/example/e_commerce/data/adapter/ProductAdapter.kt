@@ -1,4 +1,4 @@
-package com.example.e_commerce.ui.product.list
+package com.example.e_commerce.data.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
