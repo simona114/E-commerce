@@ -64,12 +64,12 @@ class ProductsFragment : Fragment() {
         }
         menuHost.addMenuProvider(menuProvider)
 
-        //todo: replace with data from the server
-        val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
-        val pr2 = ProductEntity(2, "phone", 800.00, "electronics", "url")
+//        //todo: replace with data from the server
+//        val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
+//        val pr2 = ProductEntity(2, "phone", 800.00, "electronics", "url")
 
-        viewModelProducts.cacheProduct(pr)
-        viewModelProducts.cacheProduct(pr2)
+//        viewModelProducts.cacheProduct(pr)
+//        viewModelProducts.cacheProduct(pr2)
 
         viewModelProducts.getCachedProducts()
 

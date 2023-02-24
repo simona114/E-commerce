@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.e_commerce.data.db.entity.ProductEntity
 import com.example.e_commerce.data.db.entity.toProductModel
+import com.example.e_commerce.data.models.product.ProductCategory
 import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.data.repository.ProductsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,6 +21,10 @@ class ProductViewModel @Inject constructor(private val repository: ProductsRepos
     private val _productsLiveData = MutableLiveData<List<ProductModel>>()
     val productsLiveData: LiveData<List<ProductModel>>
         get() = _productsLiveData
+
+
+
+    val selectedProductCategories = MutableLiveData<Set<ProductCategory>>()
 
     fun cacheProduct(product: ProductEntity) {
         viewModelScope.launch {
