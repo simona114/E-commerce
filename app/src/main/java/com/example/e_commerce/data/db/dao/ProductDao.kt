@@ -1,8 +1,11 @@
 package com.example.e_commerce.data.db.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.e_commerce.data.db.entity.ProductEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDao
@@ -11,8 +14,6 @@ interface ProductDao
     suspend fun addProduct(product: ProductEntity)
 
     @Query("SELECT * FROM products ORDER BY product_id ASC")
-    fun readAllProducts(): LiveData<List<ProductEntity>>
+    fun readAllProducts(): Flow<List<ProductEntity>>
 
-//    suspend fun readAllProducts(): LiveData<List<ProductEntity>>
-//    Dao functions that have a suspend modifier must not return a deferred/async type (androidx.lifecycle.LiveData). Most probably this is an error. Consider changing the return type or removing the suspend modifier.
 }

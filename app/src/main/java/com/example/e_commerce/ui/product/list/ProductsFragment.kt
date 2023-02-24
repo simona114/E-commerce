@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.e_commerce.R
 import com.example.e_commerce.data.adapter.ProductAdapter
 import com.example.e_commerce.data.db.entity.ProductEntity
-import com.example.e_commerce.data.db.entity.toProductModel
 import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.FragmentProductsBinding
 import com.example.e_commerce.ui.HomeFragmentDirections
@@ -65,22 +64,6 @@ class ProductsFragment : Fragment() {
         }
         menuHost.addMenuProvider(menuProvider)
 
-
-//        products = listOf(
-//            ProductModel(
-//                "phone",
-//                800.00,
-//                ProductCategory.ELECTRONICS,
-//                "https://i.dummyjson.com/data/products/1/4.jpg"
-//            ),
-//            ProductModel("Iphone", 1800.00, ProductCategory.ELECTRONICS, "url"),
-//            ProductModel("Iphone", 1800.00, ProductCategory.MEN_CLOTHING, "url"),
-//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url"),
-//            ProductModel("Jewelry", 1800.00, ProductCategory.JEWELRY, "url")
-//        )
-
         //todo: replace with data from the server
         val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
         val pr2 = ProductEntity(2, "phone", 800.00, "electronics", "url")
@@ -91,8 +74,7 @@ class ProductsFragment : Fragment() {
         viewModelProducts.getCachedProducts()
 
         viewModelProducts.productsLiveData.observe(viewLifecycleOwner) { productsList ->
-
-            products = productsList.map { productEntity -> productEntity.toProductModel() }
+            products = productsList
             productAdapter = ProductAdapter()
             productAdapter?.injectList(products)
 
