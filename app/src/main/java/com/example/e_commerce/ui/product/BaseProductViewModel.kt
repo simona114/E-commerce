@@ -15,16 +15,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductViewModel @Inject constructor(private val repository: ProductsRepository) :
+open class BaseProductViewModel @Inject constructor(private val repository: ProductsRepository) :
     ViewModel() {
 
     private val _productsLiveData = MutableLiveData<List<ProductModel>>()
     val productsLiveData: LiveData<List<ProductModel>>
         get() = _productsLiveData
-
-
-
-    val selectedProductCategories = MutableLiveData<Set<ProductCategory>>()
 
     fun cacheProduct(product: ProductEntity) {
         viewModelScope.launch {
@@ -43,5 +39,6 @@ class ProductViewModel @Inject constructor(private val repository: ProductsRepos
             }
         }
     }
+
 }
 

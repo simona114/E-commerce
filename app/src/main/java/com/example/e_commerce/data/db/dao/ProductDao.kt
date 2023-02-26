@@ -8,12 +8,10 @@ import com.example.e_commerce.data.db.entity.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ProductDao
-{
+interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addProduct(product: ProductEntity)
 
     @Query("SELECT * FROM products ORDER BY product_id ASC")
     fun readAllProducts(): Flow<List<ProductEntity>>
-
 }

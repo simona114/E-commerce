@@ -11,11 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.e_commerce.R
 import com.example.e_commerce.data.adapter.ProductAdapter
-import com.example.e_commerce.data.db.entity.ProductEntity
 import com.example.e_commerce.data.models.product.ProductModel
 import com.example.e_commerce.databinding.FragmentProductsBinding
-import com.example.e_commerce.ui.HomeFragmentDirections
-import com.example.e_commerce.ui.product.ProductViewModel
+import com.example.e_commerce.ui.home.HomeFragmentDirections
+import com.example.e_commerce.ui.product.BaseProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +27,7 @@ class ProductsFragment : Fragment() {
     private var productAdapter: ProductAdapter? = null
     lateinit var products: List<ProductModel>
 
-    private val viewModelProducts: ProductViewModel by viewModels()
+    private val viewModelProducts: BaseProductViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

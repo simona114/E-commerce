@@ -7,10 +7,10 @@
     <string name="menu_item_profile">Profile</string>
     <string name="menu_item_cart">Cart</string>
 
-    <string name="categoryElectronics">Electronics</string>
-    <string name="categoryJewelry">Jewelry</string>
-    <string name="categoryMenClothing">Men\'s clothing</string>
-    <string name="categoryWomenClothing">Women\'s clothing</string>
+    <string name="categoryElectronics">electronics</string>
+    <string name="categoryJewelry">jewelry</string>
+    <string name="categoryMenClothing">men\'s clothing</string>
+    <string name="categoryWomenClothing">women\'s clothing</string>
 
     <string name="warning_no_products_selected_categories">No available products from the selected categories</string>
     <string name="menu_item_search">Search for products</string>
