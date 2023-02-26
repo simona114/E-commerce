@@ -63,13 +63,6 @@ class ProductsFragment : Fragment() {
         }
         menuHost.addMenuProvider(menuProvider)
 
-//        //todo: replace with data from the server
-//        val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
-//        val pr2 = ProductEntity(2, "phone", 800.00, "electronics", "url")
-
-//        viewModelProducts.cacheProduct(pr)
-//        viewModelProducts.cacheProduct(pr2)
-
         viewModelProducts.getCachedProducts()
 
         viewModelProducts.productsLiveData.observe(viewLifecycleOwner) { productsList ->
@@ -120,19 +113,4 @@ class ProductsFragment : Fragment() {
         menuHost.removeMenuProvider(menuProvider)
 
     }
-
-    private fun changeSearchViewTextColor(view: View?) {
-        if (view != null) {
-            if (view is TextView) {
-                view.setTextColor(resources.getColor(R.color.azureish_white))
-                return
-            } else if (view is ViewGroup) {
-                val viewGroup = view
-                for (i in 0 until viewGroup.childCount) {
-                    changeSearchViewTextColor(viewGroup.getChildAt(i))
-                }
-            }
-        }
-    }
-
 }

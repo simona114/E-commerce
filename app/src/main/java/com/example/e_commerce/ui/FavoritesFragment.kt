@@ -25,7 +25,7 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bottomNavView =
-            requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigation)
         val badge = bottomNavView.getOrCreateBadge(R.id.favoritesFragment)
 
         if (badge.number > 0) {

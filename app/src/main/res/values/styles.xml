@@ -12,15 +12,15 @@
 
     <style name="customToolbarStyle" parent="ThemeOverlay.MaterialComponents.ActionBar">
         <item name="titleCentered">true</item>
-        <item name="titleTextColor">@color/azureish_white</item>
-        <item name="android:background">@color/robin_egg_blue</item>
+        <item name="titleTextColor">@color/azureishWhite</item>
+        <item name="android:background">@color/robinEggBlue</item>
 
     </style>
 
     <style name="customThemeOverlay.Toobar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
-        <item name="android:editTextColor">@color/azureish_white</item>
-        <item name="android:textColorHint">@color/azureish_white</item>
-        <item name="android:textColorPrimary">@color/azureish_white</item>
+        <item name="android:editTextColor">@color/azureishWhite</item>
+        <item name="android:textColorHint">@color/azureishWhite</item>
+        <item name="android:textColorPrimary">@color/azureishWhite</item>
     </style>
 
 </resources>
