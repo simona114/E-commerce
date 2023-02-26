@@ -5,3 +5,6 @@
 * Favorites screen: Contains a badge for showing the number of products added to favorites, if any
 
 * Hilt, Navigation component
+
+![image](https://user-images.githubusercontent.com/57250076/221435461-9905b02b-f9d7-4c3f-9fd6-8a447e95365e.png)
+
