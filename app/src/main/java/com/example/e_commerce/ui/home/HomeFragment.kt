@@ -65,8 +65,20 @@ class HomeFragment : Fragment() {
 
 
         //todo: replace with data from the server
-        val pr = ProductEntity(1, "Iphone", 1800.00, "electronics", "url")
-        val pr2 = ProductEntity(2, "men's jeans", 800.00, "men's clothing", "url")
+        val pr = ProductEntity(
+            1,
+            "women's skirt",
+            12.99,
+            "women's clothing",
+            "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+        )
+        val pr2 = ProductEntity(
+            2,
+            "men's jeans",
+            55.99,
+            "men's clothing",
+            "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+        )
         viewModelProduct.cacheProduct(pr)
         viewModelProduct.cacheProduct(pr2)
 
@@ -104,9 +116,7 @@ class HomeFragment : Fragment() {
         }
 
 
-        viewModelHome.filteredProductsLiveData.observe(viewLifecycleOwner) {
-
-                filteredProducts ->
+        viewModelHome.filteredProductsLiveData.observe(viewLifecycleOwner) { filteredProducts ->
 
             productAdapter = ProductAdapter()
 
