@@ -88,12 +88,6 @@ dependencies {
     // Kotlin coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
-//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
-//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-//
-//    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
-
-
 }
 
 // Allow references to generated code
