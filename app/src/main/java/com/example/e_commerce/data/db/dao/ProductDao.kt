@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.e_commerce.data.db.entity.ProductEntity
+import com.example.e_commerce.data.models.product.ProductRemoteModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao

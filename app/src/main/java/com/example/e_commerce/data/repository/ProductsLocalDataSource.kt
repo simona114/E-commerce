@@ -2,6 +2,7 @@ package com.example.e_commerce.data.repository
 
 import com.example.e_commerce.data.db.dao.ProductDao
 import com.example.e_commerce.data.db.entity.ProductEntity
+import com.example.e_commerce.data.models.product.ProductRemoteModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

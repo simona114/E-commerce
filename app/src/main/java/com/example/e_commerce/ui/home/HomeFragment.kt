@@ -29,7 +29,8 @@ class HomeFragment : Fragment() {
     lateinit var menuProvider: MenuProvider
 
     private val viewModelHome: HomeViewModel by viewModels()
-    private val viewModelProduct: BaseProductViewModel by viewModels()
+
+    private val isNetworkAvailable = true
 
 
     override fun onCreateView(
@@ -63,26 +64,6 @@ class HomeFragment : Fragment() {
         }
         menuHost.addMenuProvider(menuProvider)
 
-
-        //todo: replace with data from the server
-        val pr = ProductEntity(
-            1,
-            "women's skirt",
-            12.99,
-            "women's clothing",
-            "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
-        )
-        val pr2 = ProductEntity(
-            2,
-            "men's jeans",
-            55.99,
-            "men's clothing",
-            "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
-        )
-        viewModelProduct.cacheProduct(pr)
-        viewModelProduct.cacheProduct(pr2)
-
-
         val chipGroup = binding.cgProductCategories
 
         val checkedChangeListener =
@@ -97,14 +78,19 @@ class HomeFragment : Fragment() {
 
         binding.apply {
             cCategoryElectronics.setOnCheckedChangeListener(checkedChangeListener)
-            cCategoryJewelry.setOnCheckedChangeListener(checkedChangeListener)
+            cCategoryJewellery.setOnCheckedChangeListener(checkedChangeListener)
             cCategoryWomenClothing.setOnCheckedChangeListener(checkedChangeListener)
             cCategoryMenClothing.setOnCheckedChangeListener(checkedChangeListener)
         }
 
 
         viewModelHome.selectedProductCategories.observe(viewLifecycleOwner) { selectedProductCategoriesList ->
-            viewModelHome.getCachedProductsFromSelectedCategories()
+
+//            if (isNetworkAvailable) {
+//                viewModelHome.getProductsFromSelectedCategories()
+//            } else {
+//                viewModelHome.getCachedProductsFromSelectedCategories()
+//            }
 
             if (selectedProductCategoriesList.isEmpty()) {
                 binding.apply {
@@ -161,8 +147,13 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModelHome.getCachedProductsFromSelectedCategories()
-
+        if(isNetworkAvailable)
+        {
+            viewModelHome.getProductsFromSelectedCategories()
+        }
+        else{
+            viewModelHome.getCachedProductsFromSelectedCategories()
+        }
     }
 
     override fun onDestroyView() {

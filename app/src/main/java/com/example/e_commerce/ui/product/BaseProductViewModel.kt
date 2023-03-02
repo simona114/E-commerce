@@ -8,6 +8,7 @@ import com.example.e_commerce.data.db.entity.ProductEntity
 import com.example.e_commerce.data.db.entity.toProductModel
 import com.example.e_commerce.data.models.product.ProductCategory
 import com.example.e_commerce.data.models.product.ProductModel
+import com.example.e_commerce.data.models.product.ProductRemoteModel
 import com.example.e_commerce.data.repository.ProductsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map

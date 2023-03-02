@@ -6,8 +6,10 @@ import androidx.room.Room
 import com.example.e_commerce.data.db.AppDatabase
 import com.example.e_commerce.data.db.dao.ProductDao
 import com.example.e_commerce.data.repository.ProductsLocalDataSource
+import com.example.e_commerce.data.repository.ProductsRemoteDataSource
 import com.example.e_commerce.data.repository.ProductsRepository
-import com.example.e_commerce.util.Constants.DATABASE_NAME
+import com.example.e_commerce.networking.EcommerceApi
+import com.example.e_commerce.networking.EcommerceService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +36,6 @@ object AppModule {
     ).build()
 
     @Provides
-    @Singleton
     fun providesProductDao(db: AppDatabase) = db.getProductDao()
 
 
@@ -43,9 +44,18 @@ object AppModule {
     fun providesProductsLocalDataSource(dao: ProductDao) = ProductsLocalDataSource(dao)
 
     @Provides
+    fun providesEcommerceApi() = EcommerceApi
+
+    @Provides
     @Singleton
-    fun providesProductsRepository(localDataSource: ProductsLocalDataSource) =
-        ProductsRepository(localDataSource)
+    fun providesEcommerceService(api:EcommerceApi) = api.getClient()
 
+    @Provides
+    @Singleton
+    fun providesProductsRemoteDataSource(service: EcommerceService) = ProductsRemoteDataSource(service)
 
+    @Provides
+    @Singleton
+    fun providesProductsRepository(localDataSource: ProductsLocalDataSource, remoteDataSource: ProductsRemoteDataSource) =
+        ProductsRepository(localDataSource, remoteDataSource)
 }
