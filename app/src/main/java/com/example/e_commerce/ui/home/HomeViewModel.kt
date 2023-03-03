@@ -85,8 +85,6 @@ class HomeViewModel @Inject constructor(private val repository: ProductsReposito
                         productRemote.toProductModel()
                     }
                     _filteredProductsLiveData.postValue(result)
-
-
                 } else {
                     val result = repository.getProducts().filter { productRemote ->
                         productRemote.category in selectedProductCategories.value!!

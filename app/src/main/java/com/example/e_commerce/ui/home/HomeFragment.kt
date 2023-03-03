@@ -44,7 +44,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         menuHost = requireActivity()
         menuProvider = object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -84,7 +83,6 @@ class HomeFragment : Fragment() {
         }
 
         viewModelHome.selectedProductCategories.observe(viewLifecycleOwner) { selectedProductCategoriesList ->
-
             networkConnectivityObserver?.observe(viewLifecycleOwner) { isNetworkAvailable ->
                 if (isNetworkAvailable) {
                     viewModelHome.getProductsFromSelectedCategories()
@@ -92,7 +90,6 @@ class HomeFragment : Fragment() {
                     viewModelHome.getCachedProductsFromSelectedCategories()
                 }
             }
-
 
             if (selectedProductCategoriesList.isEmpty()) {
                 binding.apply {
@@ -141,7 +138,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
     }
 
 
@@ -159,7 +155,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         menuHost.removeMenuProvider(menuProvider)
-
     }
 }
 
