@@ -15,6 +15,7 @@ import com.example.e_commerce.data.adapter.ProductAdapter
 import com.example.e_commerce.data.db.entity.ProductEntity
 import com.example.e_commerce.databinding.FragmentHomeBinding
 import com.example.e_commerce.ui.product.BaseProductViewModel
+import com.example.e_commerce.util.NetworkConnectivityObserver
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +30,8 @@ class HomeFragment : Fragment() {
 
     private val viewModelHome: HomeViewModel by viewModels()
 
-    private val isNetworkAvailable = true
+    private val networkConnectivityObserver by lazy { context?.let { NetworkConnectivityObserver(it) } }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,11 +84,15 @@ class HomeFragment : Fragment() {
         }
 
         viewModelHome.selectedProductCategories.observe(viewLifecycleOwner) { selectedProductCategoriesList ->
-            if (isNetworkAvailable) {
-                viewModelHome.getProductsFromSelectedCategories()
-            } else {
-                viewModelHome.getCachedProductsFromSelectedCategories()
+
+            networkConnectivityObserver?.observe(viewLifecycleOwner) { isNetworkAvailable ->
+                if (isNetworkAvailable) {
+                    viewModelHome.getProductsFromSelectedCategories()
+                } else {
+                    viewModelHome.getCachedProductsFromSelectedCategories()
+                }
             }
+
 
             if (selectedProductCategoriesList.isEmpty()) {
                 binding.apply {
@@ -141,10 +147,12 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (isNetworkAvailable) {
-            viewModelHome.getProductsFromSelectedCategories()
-        } else {
-            viewModelHome.getCachedProductsFromSelectedCategories()
+        networkConnectivityObserver?.observe(viewLifecycleOwner) { isNetworkAvailable ->
+            if (isNetworkAvailable) {
+                viewModelHome.getProductsFromSelectedCategories()
+            } else {
+                viewModelHome.getCachedProductsFromSelectedCategories()
+            }
         }
     }
 
