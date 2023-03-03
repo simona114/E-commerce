@@ -24,14 +24,12 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private var productAdapter: ProductAdapter? = null
 
-
     lateinit var menuHost: MenuHost
     lateinit var menuProvider: MenuProvider
 
     private val viewModelHome: HomeViewModel by viewModels()
 
     private val isNetworkAvailable = true
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,24 +81,20 @@ class HomeFragment : Fragment() {
             cCategoryMenClothing.setOnCheckedChangeListener(checkedChangeListener)
         }
 
-
         viewModelHome.selectedProductCategories.observe(viewLifecycleOwner) { selectedProductCategoriesList ->
-
-//            if (isNetworkAvailable) {
-//                viewModelHome.getProductsFromSelectedCategories()
-//            } else {
-//                viewModelHome.getCachedProductsFromSelectedCategories()
-//            }
+            if (isNetworkAvailable) {
+                viewModelHome.getProductsFromSelectedCategories()
+            } else {
+                viewModelHome.getCachedProductsFromSelectedCategories()
+            }
 
             if (selectedProductCategoriesList.isEmpty()) {
                 binding.apply {
                     rvProducts.visibility = View.VISIBLE
                     tvNoProducts.visibility = View.GONE
                 }
-
             }
         }
-
 
         viewModelHome.filteredProductsLiveData.observe(viewLifecycleOwner) { filteredProducts ->
 
@@ -147,11 +141,9 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if(isNetworkAvailable)
-        {
+        if (isNetworkAvailable) {
             viewModelHome.getProductsFromSelectedCategories()
-        }
-        else{
+        } else {
             viewModelHome.getCachedProductsFromSelectedCategories()
         }
     }

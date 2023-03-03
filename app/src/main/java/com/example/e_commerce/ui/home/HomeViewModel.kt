@@ -31,7 +31,6 @@ class HomeViewModel @Inject constructor(private val repository: ProductsReposito
     fun getCachedProductsFromSelectedCategories() {
         viewModelScope.launch {
             try {
-
                 if (selectedProductCategories.value.isNullOrEmpty()) {
                     repository.getCachedProducts().map { productEntitiesList ->
                         productEntitiesList.map { productEntity ->
@@ -97,6 +96,7 @@ class HomeViewModel @Inject constructor(private val repository: ProductsReposito
                     _filteredProductsLiveData.postValue(result)
                 }
             } catch (e: Exception) {
+
                 when (e) {
                     is HttpException -> e.message?.let {
                         Log.e(
