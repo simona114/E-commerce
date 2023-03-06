@@ -7,10 +7,10 @@
     <string name="menu_item_profile">Profile</string>
     <string name="menu_item_cart">Cart</string>
 
-    <string name="categoryElectronics">electronics</string>
-    <string name="categoryJewellery">jewelery</string>
-    <string name="categoryMenClothing">men\'s clothing</string>
-    <string name="categoryWomenClothing">women\'s clothing</string>
+    <string name="product_category_electronics">electronics</string>
+    <string name="product_category_jewellery">jewelery</string>
+    <string name="product_category_men_clothing">men\'s clothing</string>
+    <string name="product_category_women_clothing">women\'s clothing</string>
 
     <string name="warning_no_products_selected_categories">No available products from the selected categories</string>
     <string name="menu_item_search">Search for products</string>
@@ -25,12 +25,9 @@
     <string name="home_claim_voucher">Claim voucher</string>
     <string name="home_discount_description">Up to 60% Off</string>
 
-
     <string name="cart_browse_products">Browse products</string>
     <string name="cart_empty_list_title">No items in cart</string>
     <string name="cart_empty_list_description"> Discover the incredible deals and discounts that are waiting for you!</string>
-
-
 
     <string name="content_description_favorites_list">favorites list</string>
     <string name="content_description_empty_cart">empty cart</string>

@@ -76,7 +76,7 @@
                 style="@style/customChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/categoryElectronics" />
+                android:text="@string/product_category_electronics" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/cCategoryJewellery"
@@ -84,7 +84,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/categoryJewellery" />
+                android:text="@string/product_category_jewellery" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/cCategoryMenClothing"
@@ -92,14 +92,14 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/categoryMenClothing" />
+                android:text="@string/product_category_men_clothing" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/cCategoryWomenClothing"
                 style="@style/customChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/categoryWomenClothing" />
+                android:text="@string/product_category_women_clothing" />
         </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
