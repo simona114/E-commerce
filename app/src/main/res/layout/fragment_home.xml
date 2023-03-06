@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Up to 60% Off"
+        android:text="@string/home_discount_description"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@id/btnClaimVoucher"
         app:layout_constraintEnd_toEndOf="@id/ivDiscount" />
@@ -36,8 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Claim voucher"
-
+        android:text="@string/home_claim_voucher"
         app:layout_constraintBottom_toBottomOf="@id/ivDiscount"
         app:layout_constraintEnd_toEndOf="@id/ivDiscount" />
 
@@ -46,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
-        android:text="Categories"
+        android:text="@string/home_product_categories"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
