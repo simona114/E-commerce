@@ -21,5 +21,12 @@
     <string name="favorites_empty_list_title">No favorites yet</string>
     <string name="favorites_empty_list_description">Add products to favorites and we will notify you when they are on sale. It\'s that easy!</string>
 
+    <string name="cart_browse_products">Browse products</string>
+    <string name="cart_empty_list_title">No items in cart</string>
+    <string name="cart_empty_list_description"> Discover the incredible deals and discounts that are waiting for you!</string>
+
+
+
     <string name="content_description_favorites_list">favorites list</string>
+    <string name="content_description_empty_cart">empty cart</string>
 </resources>
