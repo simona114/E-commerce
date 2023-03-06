@@ -31,12 +31,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnClaimVoucher"
+        style="@style/buttonTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Claim voucher"
-        android:textAllCaps="false"
+
         app:layout_constraintBottom_toBottomOf="@id/ivDiscount"
         app:layout_constraintEnd_toEndOf="@id/ivDiscount" />
 

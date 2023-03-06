@@ -23,4 +23,8 @@
         <item name="android:textColorPrimary">@color/azureishWhite</item>
     </style>
 
+    <style name="buttonTextStyle" >
+        <item name="textAllCaps">false</item>
+    </style>
+
 </resources>
