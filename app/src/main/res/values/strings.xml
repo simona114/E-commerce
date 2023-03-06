@@ -26,9 +26,15 @@
     <string name="home_discount_description">Up to 60% Off</string>
 
     <string name="cart_browse_products">Browse products</string>
-    <string name="cart_empty_list_title">No items in cart</string>
+    <string name="cart_empty_list_title">No products in your cart</string>
     <string name="cart_empty_list_description"> Discover the incredible deals and discounts that are waiting for you!</string>
+
+    <string name="profile_not_logged_in_title">You\'re not logged in</string>
+    <string name="profile_not_logged_in_description">Log in or create an account to enjoy the full benefits of the application</string>
+    <string name="profile_log_in">Log in</string>
+    <string name="profile_sign_in">Sign in</string>
 
     <string name="content_description_favorites_list">favorites list</string>
     <string name="content_description_empty_cart">empty cart</string>
+    <string name="content_description_user_not_logged">user not logged in</string>
 </resources>
