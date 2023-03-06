@@ -17,4 +17,9 @@
     <string name="products">Products</string>
 
     <string name="warning_no_results_for_query">No results for \"%1$s\"</string>
+
+    <string name="favorites_empty_list_title">No favorites yet</string>
+    <string name="favorites_empty_list_description">Add products to favorites and we will notify you when they are on sale. It\'s that easy!</string>
+
+    <string name="content_description_favorites_list">favorites list</string>
 </resources>
