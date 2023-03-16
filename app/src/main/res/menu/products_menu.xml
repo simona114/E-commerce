@@ -7,4 +7,9 @@
         android:title="@string/menu_item_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/miSortProducts"
+        android:icon="@drawable/ic_sort"
+        android:title="@string/menu_item_sort"
+        app:showAsAction="always" />
 </menu>

@@ -53,6 +53,10 @@ class ProductsFragment : Fragment() {
                         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProductsFragment())
                         true
                     }
+                    R.id.miSortProducts -> {
+                        //todo
+                        true
+                    }
                     else -> false
                 }
             }

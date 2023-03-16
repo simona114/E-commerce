@@ -6,6 +6,8 @@
     <string name="menu_item_favorites">Favorites</string>
     <string name="menu_item_profile">Profile</string>
     <string name="menu_item_cart">Cart</string>
+    <string name="menu_item_sort">Sort products</string>
+
 
     <string name="product_category_electronics">electronics</string>
     <string name="product_category_jewellery">jewelery</string>
