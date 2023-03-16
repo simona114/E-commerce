@@ -1,12 +1,12 @@
 # E-commerce
 
 * Bottom navigation bar for switching between the following screens: Home, Cart, Favorites, Profile
-* Home screen: A list of products, which can be filtered by different categories. Multiple categories can be chosen at once. If a single product matches the selected categories, it is displayed centrally. If there aren't any products that match the categories, a label is shown instead
-* Products screen: A list of all the available products which can be searched by keywords
+* Home screen: A list of products, which can be filtered by different categories. Multiple categories can be chosen at once. If a single product matches the selected categories, it is displayed centrally. If there aren't any products that match the categories, a label is shown instead. The displayed products are loaded from the server or loaded from the local database, based on the network connectivity status.
+* Products screen: A list of all the available products which can be searched by keywords. The displayed products are loaded from the server or loaded from the local database, based on the network connectivity status.
 * Favorites screen: Contains a badge for showing the number of products added to favorites, if any
 
 * Hilt, Navigation component, Retrofit, Room, Glide
-* MVVM
+* MVVM, Coroutines, Flow
 
 ![image](https://user-images.githubusercontent.com/57250076/221435461-9905b02b-f9d7-4c3f-9fd6-8a447e95365e.png)
 
